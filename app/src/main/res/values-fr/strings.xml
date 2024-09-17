@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="app_name">USTH Météo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+    <string name="title_hanoi">Hanoï</string>
+    <string name="title_hcm">Hô Chi Minh</string>
+    <string name="title_paris">Paris</string>
+
+
+    <string name="hanoi">Hanoï</string>
+    <string name="weaconhn">Nuageuse</string>
+    <string name="weaconhn1">Partiellement nuageux</string>
+    <string name="weaconhn2">principalement nuageux</string>
+    <string name="weaconhn3">Orages</string>
+    <string name="weaconhn4">Ensoleillé</string>
+
+    <string name="lunhn">Lun</string>
+    <string name="marhn">Mar</string>
+    <string name="merhn">Mer</string>
+    <string name="jeuhn">Jeu</string>
+    <string name="venhn">Ven</string>
+    <string name="samhn">Sam</string>
+    <string name="dimhn">Dim</string>
+
+
+
+    <string name="weaconhcm">Nuageuse</string>
+    <string name="weaconhcm1">Partiellement nuageux</string>
+    <string name="weaconhcm2">principalement nuageux</string>
+    <string name="weaconhcm3">Orages</string>
+    <string name="weaconhcm4">Ensoleillé</string>
+
+
+    <string name="lunhcm">Lun</string>
+    <string name="marhcm">Mar</string>
+    <string name="merhcm">Mer</string>
+    <string name="jeuhcm">Jeu</string>
+    <string name="venhcm">Ven</string>
+    <string name="samhcm">Sam</string>
+    <string name="dimhcm">Dim</string>
+
+
+
+
+
+    <string name="weaconpr">Nuageuse</string>
+    <string name="weaconpr1">Partiellement nuageux</string>
+    <string name="weaconpr2">principalement nuageux</string>
+    <string name="weaconpr3">Orages</string>
+    <string name="weaconpr4">Ensoleillé</string>
+
+
+
+    <string name="lun">Lun</string>
+    <string name="marpr">Mar</string>
+    <string name="merpr">Mer</string>
+    <string name="jeupr">Jeu</string>
+    <string name="venpr">Ven</string>
+    <string name="sampr">Sam</string>
+    <string name="dimpr">Dim</string>
+
+
+
+
+
+
+
+
+
+
+
+
+</resources>

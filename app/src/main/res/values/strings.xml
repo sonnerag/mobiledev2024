@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">USTH Weather</string>
+
+
+    <string name="title_hanoi">Hanoi</string>
+    <string name="title_hcm">HCMC</string>
+    <string name="title_paris">Paris</string>
+
+
+    <string name="hanoi">Hanoi</string>
+
+
+    <string name="weaconhn">Cloudy</string>
+    <string name="weaconhn1">Partly Cloudy</string>
+    <string name="weaconhn2">Mostly Cloudy</string>
+    <string name="weaconhn3">Thunderstorms</string>
+    <string name="weaconhn4">Sunny</string>
+
+    <string name="lunhn">Mon</string>
+    <string name="marhn">Tue</string>
+    <string name="merhn">Wed</string>
+    <string name="jeuhn">Thu</string>
+    <string name="venhn">Fri</string>
+    <string name="samhn">Sat</string>
+    <string name="dimhn">Sun</string>
+
+
+
+    <string name="weaconhcm">Cloudy</string>
+    <string name="weaconhcm1">Partly Cloudy</string>
+    <string name="weaconhcm2">Mostly Cloudy</string>
+    <string name="weaconhcm3">Thunderstorms</string>
+    <string name="weaconhcm4">Sunny</string>
+
+
+    <string name="lunhcm">Mon</string>
+    <string name="marhcm">Tue</string>
+    <string name="merhcm">Wed</string>
+    <string name="jeuhcm">Thu</string>
+    <string name="venhcm">Fri</string>
+    <string name="samhcm">Sat</string>
+    <string name="dimhcm">Sun</string>
+
+
+    <string name="weaconpr">Cloudy</string>
+    <string name="weaconpr1">Partly Cloudy</string>
+    <string name="weaconpr2">Mostly Cloudy</string>
+    <string name="weaconpr3">Thunderstorms</string>
+    <string name="weaconpr4">Sunny</string>
+
+
+
+    <string name="lun">Mon</string>
+    <string name="marpr">Tue</string>
+    <string name="merpr">Wed</string>
+    <string name="jeupr">Thu</string>
+    <string name="venpr">Fri</string>
+    <string name="sampr">Sat</string>
+    <string name="dimpr">Sun</string>
+
+
+
+    <string name="temperature_range" translatable="false">12C - 25</string>
+
+</resources>

@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".Hcm"
+    android:id="@+id/WeaForFragment1"
+  >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="@dimen/relative_layout_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/relative_layout_margin_top"
+            android:background="@drawable/frame"
+
+            android:padding="@dimen/relative_layout_padding">
+
+            <TextView
+                android:id="@+id/temperature1"
+                android:layout_width="@dimen/text_view_width"
+                android:layout_height="@dimen/text_view_height"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+
+
+                android:layout_marginStart="@dimen/text_view_margin_start"
+                android:layout_marginTop="@dimen/martop"
+                android:text="32C"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/temperature_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/weather_condition1"
+                android:layout_width="@dimen/text_view_width"
+                android:layout_height="@dimen/weather_condition_height"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+
+                android:layout_marginStart="@dimen/text_view_margin_start"
+                android:layout_marginTop="@dimen/mato"
+                android:text="@string/weaconhcm"
+                android:textColor="@color/text_black" />
+
+            <ImageView
+                android:id="@+id/weather_icon1"
+                android:layout_width="@dimen/weather_icon_width"
+                android:layout_height="@dimen/weather_icon_height"
+                android:layout_centerInParent="true"
+                android:src="@drawable/baseline_cloud_24" />
+
+            <TextView
+                android:id="@+id/location1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/mart"
+                android:layout_marginEnd="@dimen/text_view_margin_start"
+                android:text="@string/title_hcm"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/location_text_size"
+                android:textStyle="bold" />
+        </RelativeLayout>
+  
+
+
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_height" />
+
+
+        <FrameLayout
+            android:id="@+id/container1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            tools:context=".ForecastFragment">
+
+            <LinearLayout
+                android:id="@+id/forecast_container1"
+                android:layout_width="@dimen/forecast_container_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/forecast_padding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/forecast_item_padding">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_item_padding"
+                        android:text="@string/lunhn"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/image_margin_end"
+                        android:src="@drawable/baseline_cloud_24" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_item_padding"
+                        android:text="@string/weaconhn1"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_item_padding"
+                        android:text="24C - 31C"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/forecast_padding">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_item_padding"
+                        android:text="@string/marhn"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/image_margin_end"
+                        android:src="@drawable/baseline_cloud_24" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_item_padding"
+                        android:text="@string/weaconhn2"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_item_padding"
+                        android:text="23C - 29C"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/forecast_padding">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_item_padding"
+                        android:text="@string/merhn"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/image_margin_end"
+                        android:src="@drawable/baseline_thunderstorm_24" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_item_padding"
+                        android:text="@string/weaconhn3"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_item_padding"
+                        android:text="22C - 28C"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/forecast_padding">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/jeuhn"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/image_margin_end"
+                        android:src="@drawable/baseline_sunny_24" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/weaconhn4"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="25C - 32C"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/forecast_padding">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/venhn"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/image_margin_end"
+                        android:src="@drawable/baseline_cloud_24" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/weaconhn2"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="21C - 28C"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/forecast_padding">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/samhn"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/image_margin_end"
+                        android:src="@drawable/baseline_cloud_24" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/weaconhn1"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/temperature_range"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/forecast_padding">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/dimhn"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/image_margin_end"
+                        android:src="@drawable/baseline_sunny_24" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/weaconhn4"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/temperature_range"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/forecast_padding">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/lunhn"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/image_margin_end"
+                        android:src="@drawable/baseline_cloud_24" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/weaconhn2"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/temperature_range"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/forecast_padding">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/marhn"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/image_margin_end"
+                        android:src="@drawable/baseline_cloud_24" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/weaconhn2"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/temperature_range"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/forecast_padding">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/merhn"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/image_margin_end"
+                        android:src="@drawable/baseline_thunderstorm_24" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/weaconhn3"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/temperature_range"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/forecast_padding">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/jeuhn"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/image_margin_end"
+                        android:src="@drawable/baseline_sunny_24" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/weaconhn4"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="25C - 32C"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/forecast_padding">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/venhn"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size" />
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/forecast_padding"
+                        android:src="@drawable/baseline_cloud_24" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="@string/weaconhn2"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/forecast_padding"
+                        android:text="21C - 28C"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size" />
+
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>
