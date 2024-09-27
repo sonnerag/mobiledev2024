@@ -35,7 +35,7 @@ public class WeatherActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private HomeFragmentPagerAdapter adapter;
     private MediaPlayer mediaPlayer;
-    private String mp3file = "streammusique.mp3";
+    private String mp3file = "streammusic.mp3";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +70,7 @@ public class WeatherActivity extends AppCompatActivity {
         }
 
         try {
-            InputStream inputStream = getResources().openRawResource(R.raw.streammusique);
+            InputStream inputStream = getResources().openRawResource(R.raw.streammusic);
             OutputStream outputStream = new FileOutputStream(file);
             byte[] buffer = new byte[1024];
             int length;
