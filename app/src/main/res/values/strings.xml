@@ -61,5 +61,6 @@
 
 
     <string name="temperature_range" translatable="false">12C - 25</string>
+    <string name="server_response" />
 
 </resources>

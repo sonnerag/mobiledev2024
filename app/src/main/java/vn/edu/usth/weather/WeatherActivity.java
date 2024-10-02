@@ -7,6 +7,9 @@ import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,6 +44,10 @@ public class WeatherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewpager);
+
+
+
+
 
         if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
@@ -158,15 +165,48 @@ public class WeatherActivity extends AppCompatActivity {
         // Handle the 'refresh' menu item
         if (item.getItemId() == R.id.refresh) {
             Toast.makeText(this, "Refreshed!", Toast.LENGTH_SHORT).show();
+
+
+            final Handler handler = new Handler(Looper.getMainLooper()) {
+
+                @Override
+                public void handleMessage(Message msg) {
+                    String content = msg.getData().getString("server_response");
+                    Toast.makeText(WeatherActivity.this, content, Toast.LENGTH_SHORT).show();
+
+                }
+            };
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+                    try {
+                        Thread.sleep(5000);
+
+                    }
+                    catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
+                    Bundle bundle = new Bundle();
+                    bundle.putString(getString(R.string.server_response), "Hello");
+
+
+                    Message msg = new Message();
+                    msg.setData(bundle);
+                    handler.sendMessage(msg);
+
+                }
+            });
+
+
+            t.start();
+
+
+
+
             return true;
         }
 
-        // Handle the 'settings' menu item
-        if (item.getItemId() == R.id.settings) {
-            Intent intent = new Intent(this, PrefActivity.class);
-            startActivity(intent);
-            return true;
-        }
 
 
 
