@@ -25,16 +25,15 @@
 
             <TextView
                 android:id="@+id/temperature2"
-                android:layout_width="@dimen/text_view_width"
-                android:layout_height="@dimen/text_view_height"
+                android:layout_width="55dp"
+                android:layout_height="100dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="@dimen/text_view_margin_start"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="@dimen/text_view_margin_bottom"
-                android:text="32C"
                 android:textColor="@color/text_black"
-                android:textSize="@dimen/temperature_text_size"
+                android:textSize="15dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -63,7 +62,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="@dimen/text_view_margin_above"
                 android:layout_marginEnd="@dimen/text_view_margin_start"
-                android:text="@string/title_hcm"
+                android:text="@string/title_paris"
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/location_text_size"
                 android:textStyle="bold" />
@@ -83,7 +82,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             tools:context=".ForecastFragment">
-
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="189dp"
+                android:layout_gravity="center"
+                />
             <LinearLayout
                 android:id="@+id/forecast_container2"
                 android:layout_width="@dimen/forecast_container_width"

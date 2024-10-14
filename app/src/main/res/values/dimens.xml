@@ -4,12 +4,12 @@
     <dimen name="relative_layout_margin_top">35dp</dimen>
     <dimen name="relative_layout_padding">10dp</dimen>
     <dimen name="text_view_width">66dp</dimen>
-    <dimen name="text_view_height">42dp</dimen>
-    <dimen name="text_view_margin_start">50dp</dimen>
+    <dimen name="text_view_height">59dp</dimen>
+    <dimen name="text_view_margin_start">45dp</dimen>
     <dimen name="text_view_margin_bottom">5dp</dimen>
     <dimen name="text_view_margin_bottom1">352dp</dimen>martop
 
-    <dimen name="mato">40dp</dimen>mart
+    <dimen name="mato">90dp</dimen>mart
     <dimen name="mart">10dp</dimen>
     <dimen name="martop">10dp</dimen>
     <dimen name="text_view_margin_above">30dp</dimen>

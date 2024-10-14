@@ -1,64 +1,137 @@
 package vn.edu.usth.weather;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Hanoi#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
 public class Hanoi extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private TextView temperatureTextView;
+    private TextView weatherConditionTextView;
+    private ImageView logo;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Hanoi() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Hanoi.
-     */
-    // TODO: Rename and change types and number of parameters
     public static Hanoi newInstance(String param1, String param2) {
         Hanoi fragment = new Hanoi();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString("param1", param1);
+        args.putString("param2", param2);
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_hanoi, container, false);
+
+        temperatureTextView = view.findViewById(R.id.temperature3);
+        weatherConditionTextView = view.findViewById(R.id.weather_condition3);
+        logo = view.findViewById(R.id.logo);
+
+        new FetchWeatherTask().execute();
+
+        new DownloadImageTask().execute("https://usth.edu.vn/wp-content/uploads/2021/11/logo.png");
+
+        return view;
+    }
+
+    private class FetchWeatherTask extends AsyncTask<Void, Void, String> {
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            String apiKey = "90f7e255f3cd319f38bb29b0c45aa49f";
+            String cityId = "1581129";
+            String urlString = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityId + "&appid=" + apiKey + "&units=metric";
+            try {
+                URL url = new URL(urlString);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("GET");
+
+                InputStream inputStream = connection.getInputStream();
+                Scanner scanner = new Scanner(inputStream);
+                StringBuilder builder = new StringBuilder();
+                while (scanner.hasNext()) {
+                    builder.append(scanner.nextLine());
+                }
+                scanner.close();
+                inputStream.close();
+                connection.disconnect();
+                return builder.toString();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String response) {
+            if (response != null) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    JSONArray list = jsonResponse.getJSONArray("list");
+
+                    // Get the first time slot's forecast
+                    JSONObject firstForecast = list.getJSONObject(0);
+                    JSONObject main = firstForecast.getJSONObject("main");
+                    double temperatureCelsius = main.getDouble("temp");
+
+                    String weatherDescription = firstForecast.getJSONArray("weather")
+                            .getJSONObject(0)
+                            .getString("description");
+
+                    // Display the weather data
+                    temperatureTextView.setText(String.format("%.2f°C", temperatureCelsius));
+                    weatherConditionTextView.setText(weatherDescription);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    temperatureTextView.setText("Error parsing weather data");
+                }
+            } else {
+                temperatureTextView.setText("Error fetching weather data");
+            }
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hanoi, container, false);
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+
+        @Override
+        protected Bitmap doInBackground(String... urls) {
+            String url = urls[0];
+            try {
+                InputStream inputStream = new URL(url).openStream();
+                return BitmapFactory.decodeStream(inputStream);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            if (result != null) {
+                logo.setImageBitmap(result);
+            } else {
+                logo.setBackgroundResource(android.R.color.darker_gray);
+            }
+        }
     }
 }

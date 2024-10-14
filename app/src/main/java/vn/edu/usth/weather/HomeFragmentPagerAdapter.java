@@ -1,7 +1,9 @@
 package vn.edu.usth.weather;
 
 import android.content.res.Resources;
+import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -39,8 +41,15 @@ public class HomeFragmentPagerAdapter extends FragmentPagerAdapter {
         return new EmptyFragment(); // failsafe
     }
 
+    @NonNull
     @Override
-    public CharSequence getPageTitle(int page) {
-        return titles[page]; // returns the translated tab title
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        // Call the super method to ensure the fragment is instantiated correctly
+        return super.instantiateItem(container, position);
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return titles[position]; // returns the translated tab title
     }
 }

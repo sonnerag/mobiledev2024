@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="USTH_Weather">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-09-16T02:36:07.916961800Z">
+        <DropdownSelection timestamp="2024-10-14T14:15:22.722407189Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\ASUS\.android\avd\Pixel_8a_API_35_2.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=/home/sonnerag/.android/avd/Medium_Phone_API_35.avd" />
             </handle>
           </Target>
         </DropdownSelection>

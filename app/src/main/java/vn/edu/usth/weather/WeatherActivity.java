@@ -1,10 +1,15 @@
 package vn.edu.usth.weather;
+import static java.security.AccessController.getContext;
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -13,6 +18,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 
@@ -20,6 +26,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -29,7 +36,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.BitSet;
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class WeatherActivity extends AppCompatActivity {
@@ -162,56 +174,64 @@ public class WeatherActivity extends AppCompatActivity {
             return true;
         }
 
-        // Handle the 'refresh' menu item
         if (item.getItemId() == R.id.refresh) {
-            Toast.makeText(this, "Refreshed!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Refreshing...", Toast.LENGTH_SHORT).show();
 
+            // Create an ExecutorService to handle the background task
+            ExecutorService executor = Executors.newSingleThreadExecutor();
+            Handler handler = new Handler(Looper.getMainLooper());
 
-            final Handler handler = new Handler(Looper.getMainLooper()) {
+            executor.execute(() -> {
+                Bitmap bitmap = null;
+                try {
+                    // Initialize URL to USTH logo
+                    URL url = new URL("https://usth.edu.vn/wp-content/uploads/2021/11/logo.png");
 
-                @Override
-                public void handleMessage(Message msg) {
-                    String content = msg.getData().getString("server_response");
-                    Toast.makeText(WeatherActivity.this, content, Toast.LENGTH_SHORT).show();
+                    // Make a request to the server
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    connection.setRequestMethod("GET");
+                    connection.setDoInput(true);
+                    connection.connect();
 
-                }
-            };
-            Thread t = new Thread(new Runnable() {
-                @Override
-                public void run() {
+                    // Check the response code
+                    int response = connection.getResponseCode();
+                    Log.i("USTHWeather", "The response is: " + response);
 
-                    try {
-                        Thread.sleep(5000);
-
+                    if (response == HttpURLConnection.HTTP_OK) {
+                        // Download the image
+                        InputStream is = connection.getInputStream();
+                        bitmap = BitmapFactory.decodeStream(is);
+                        is.close();
                     }
-                    catch (InterruptedException e){
-                        e.printStackTrace();
-                    }
-                    Bundle bundle = new Bundle();
-                    bundle.putString(getString(R.string.server_response), "Hello");
 
-
-                    Message msg = new Message();
-                    msg.setData(bundle);
-                    handler.sendMessage(msg);
-
+                    connection.disconnect();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+
+                Bitmap finalBitmap = bitmap;
+                handler.post(() -> {
+                    if (finalBitmap != null) {
+                        // Get the current fragment in the ViewPager
+                        Fragment currentFragment = (Fragment) adapter.instantiateItem(pager, pager.getCurrentItem());
+
+                        if (currentFragment.getView() != null) {
+                            // Find the ImageView within the fragment and set the image
+                            ImageView logo = currentFragment.getView().findViewById(R.id.logo);
+                            logo.setImageBitmap(finalBitmap);
+                            Toast.makeText(WeatherActivity.this, "Logo downloaded and displayed!", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(WeatherActivity.this, "Failed to download logo", Toast.LENGTH_SHORT).show();
+                    }
+                });
             });
-
-
-            t.start();
-
-
-
 
             return true;
         }
-
-
-
-
         return super.onOptionsItemSelected(item);
     }
+
 
     private void switchLanguage() {
         Locale currentLocale = getResources().getConfiguration().locale;

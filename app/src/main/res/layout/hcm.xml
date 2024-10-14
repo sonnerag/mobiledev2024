@@ -34,6 +34,7 @@
 
                 android:layout_marginStart="@dimen/text_view_margin_start"
                 android:layout_marginTop="@dimen/martop"
+                android:layout_marginBottom="@dimen/text_view_margin_bottom"
                 android:text="32C"
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/temperature_text_size"
@@ -86,6 +87,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             tools:context=".ForecastFragment">
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="189dp"
+                android:layout_gravity="center"
+                />
 
             <LinearLayout
                 android:id="@+id/forecast_container1"

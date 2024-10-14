@@ -35,6 +35,8 @@ dependencies {
 
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("com.google.code.gson:gson:2.8.6")
     implementation("androidx.viewpager:viewpager:1.0.0")
     implementation("androidx.fragment:fragment:1.5.5")
     testImplementation(libs.junit)
